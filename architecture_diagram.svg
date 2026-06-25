@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 760" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <style>
+      .title{font-size:26px;font-weight:bold;fill:#16191f}
+      .sub{font-size:13px;fill:#5f6b7a}
+      .phase{font-size:13px;font-weight:bold;fill:#232f3e;text-transform:uppercase;letter-spacing:1px}
+      .svc{font-size:12px;font-weight:bold;fill:#fff}
+      .svcd{font-size:10px;fill:#e6edf3}
+      .lbl{font-size:11px;fill:#16191f}
+      .flow{font-size:10px;fill:#5f6b7a;font-style:italic}
+    </style>
+    <marker id="ar-orange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#ec7211"/>
+    </marker>
+    <marker id="ar-blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#3b48cc"/>
+    </marker>
+  </defs>
+
+  <rect width="1180" height="760" fill="#f7f8fa"/>
+  <text x="40" y="46" class="title">Fraud Detection — MLOps Pipeline on AWS</text>
+  <text x="40" y="68" class="sub">From raw data ingestion to real-time inference, monitoring, and CI/CD automation · Region: af-south-1</text>
+
+  <!-- ===== PHASE BANDS ===== -->
+  <!-- Phase 1 -->
+  <rect x="30" y="92" width="270" height="300" rx="10" fill="#eef3ff" stroke="#aab7e0"/>
+  <text x="48" y="116" class="phase">Phase 1 · Data &amp; Features</text>
+  <!-- Phase 2 -->
+  <rect x="320" y="92" width="270" height="300" rx="10" fill="#fff1e6" stroke="#f0c39a"/>
+  <text x="338" y="116" class="phase">Phase 2 · Training</text>
+  <!-- Phase 3 -->
+  <rect x="610" y="92" width="540" height="300" rx="10" fill="#eafaf1" stroke="#9bd9b8"/>
+  <text x="628" y="116" class="phase">Phase 3 · Deployment &amp; Serving</text>
+  <!-- Phase 4/5 -->
+  <rect x="30" y="430" width="1120" height="290" rx="10" fill="#f3eefc" stroke="#c5aee6"/>
+  <text x="48" y="454" class="phase">Phase 4 &amp; 5 · MLOps, Monitoring, Automation &amp; Production</text>
+
+  <!-- ===== SERVICE NODE TEMPLATE (orange = storage/ML, blue = compute) ===== -->
+  <!-- Phase 1 nodes -->
+  <g>
+    <rect x="55" y="140" width="220" height="56" rx="6" fill="#3b9c5a"/>
+    <text x="70" y="164" class="svc">Amazon S3</text>
+    <text x="70" y="182" class="svcd">raw/  +  processed/</text>
+  </g>
+  <g>
+    <rect x="55" y="216" width="220" height="56" rx="6" fill="#ec7211"/>
+    <text x="70" y="240" class="svc">SageMaker Processing</text>
+    <text x="70" y="258" class="svcd">EDA · feature engineering</text>
+  </g>
+  <g>
+    <rect x="55" y="292" width="220" height="56" rx="6" fill="#ec7211"/>
+    <text x="70" y="316" class="svc">SageMaker Feature Store</text>
+    <text x="70" y="334" class="svcd">Online + Offline</text>
+  </g>
+
+  <!-- Phase 2 nodes -->
+  <g>
+    <rect x="340" y="140" width="230" height="50" rx="6" fill="#ec7211"/>
+    <text x="355" y="162" class="svc">Training Jobs (XGBoost)</text>
+    <text x="355" y="179" class="svcd">+ Deep Learning (Keras)</text>
+  </g>
+  <g>
+    <rect x="340" y="200" width="230" height="46" rx="6" fill="#ec7211"/>
+    <text x="355" y="222" class="svc">HPO · Experiments</text>
+    <text x="355" y="238" class="svcd">hyperparameter tuning</text>
+  </g>
+  <g>
+    <rect x="340" y="256" width="230" height="46" rx="6" fill="#ec7211"/>
+    <text x="355" y="278" class="svc">SageMaker Clarify</text>
+    <text x="355" y="294" class="svcd">bias + explainability</text>
+  </g>
+  <g>
+    <rect x="340" y="312" width="230" height="48" rx="6" fill="#8245d6"/>
+    <text x="355" y="334" class="svc">Model Registry</text>
+    <text x="355" y="350" class="svcd">versioning + approval</text>
+  </g>
+
+  <!-- Phase 3 nodes -->
+  <g>
+    <rect x="630" y="140" width="230" height="56" rx="6" fill="#ec7211"/>
+    <text x="645" y="164" class="svc">Real-time Endpoint</text>
+    <text x="645" y="182" class="svcd">auto-scaling</text>
+  </g>
+  <g>
+    <rect x="630" y="216" width="230" height="56" rx="6" fill="#ec7211"/>
+    <text x="645" y="240" class="svc">Batch Transform</text>
+    <text x="645" y="258" class="svcd">bulk monthly scoring</text>
+  </g>
+  <g>
+    <rect x="900" y="140" width="220" height="56" rx="6" fill="#d6336c"/>
+    <text x="915" y="164" class="svc">API Gateway</text>
+    <text x="915" y="182" class="svcd">REST /predict</text>
+  </g>
+  <g>
+    <rect x="900" y="216" width="220" height="56" rx="6" fill="#d6336c"/>
+    <text x="915" y="240" class="svc">AWS Lambda</text>
+    <text x="915" y="258" class="svcd">invokes endpoint</text>
+  </g>
+  <g>
+    <rect x="900" y="300" width="220" height="56" rx="6" fill="#232f3e"/>
+    <text x="915" y="324" class="svc">Client / Support App</text>
+    <text x="915" y="342" class="svcd">real-time fraud score</text>
+  </g>
+
+  <!-- Phase 4/5 nodes -->
+  <g>
+    <rect x="55" y="480" width="230" height="56" rx="6" fill="#8245d6"/>
+    <text x="70" y="504" class="svc">SageMaker Pipeline</text>
+    <text x="70" y="522" class="svcd">validate→train→eval→register</text>
+  </g>
+  <g>
+    <rect x="55" y="556" width="230" height="56" rx="6" fill="#d6336c"/>
+    <text x="70" y="580" class="svc">CodePipeline / CodeBuild</text>
+    <text x="70" y="598" class="svcd">CI/CD automation</text>
+  </g>
+  <g>
+    <rect x="330" y="480" width="230" height="56" rx="6" fill="#ec7211"/>
+    <text x="345" y="504" class="svc">Model Monitor</text>
+    <text x="345" y="522" class="svcd">data + quality drift</text>
+  </g>
+  <g>
+    <rect x="330" y="556" width="230" height="56" rx="6" fill="#d6336c"/>
+    <text x="345" y="580" class="svc">Amazon SNS</text>
+    <text x="345" y="598" class="svcd">email drift alerts</text>
+  </g>
+  <g>
+    <rect x="605" y="480" width="230" height="56" rx="6" fill="#d6336c"/>
+    <text x="620" y="504" class="svc">Amazon CloudWatch</text>
+    <text x="620" y="522" class="svcd">latency · invocations · cost</text>
+  </g>
+  <g>
+    <rect x="605" y="556" width="230" height="56" rx="6" fill="#232f3e"/>
+    <text x="620" y="580" class="svc">IAM · KMS / SSE · VPC</text>
+    <text x="620" y="598" class="svcd">least-privilege + encryption</text>
+  </g>
+  <g>
+    <rect x="880" y="480" width="240" height="132" rx="6" fill="#3b9c5a"/>
+    <text x="900" y="520" class="svc">Cost Optimization</text>
+    <text x="900" y="544" class="svcd">Graviton instances</text>
+    <text x="900" y="562" class="svcd">Multi-model endpoints</text>
+    <text x="900" y="580" class="svcd">Auto-scaling + teardown</text>
+    <text x="900" y="598" class="svcd">Savings Plans</text>
+  </g>
+
+  <!-- ===== FLOW ARROWS ===== -->
+  <!-- P1 vertical -->
+  <line x1="165" y1="196" x2="165" y2="214" stroke="#ec7211" stroke-width="2" marker-end="url(#ar-orange)"/>
+  <line x1="165" y1="272" x2="165" y2="290" stroke="#ec7211" stroke-width="2" marker-end="url(#ar-orange)"/>
+  <!-- P1 -> P2 -->
+  <line x1="275" y1="240" x2="338" y2="165" stroke="#ec7211" stroke-width="2" marker-end="url(#ar-orange)"/>
+  <text x="280" y="200" class="flow">features</text>
+  <!-- P2 internal -->
+  <line x1="455" y1="190" x2="455" y2="198" stroke="#ec7211" stroke-width="2" marker-end="url(#ar-orange)"/>
+  <line x1="455" y1="246" x2="455" y2="254" stroke="#ec7211" stroke-width="2" marker-end="url(#ar-orange)"/>
+  <line x1="455" y1="302" x2="455" y2="310" stroke="#ec7211" stroke-width="2" marker-end="url(#ar-orange)"/>
+  <!-- P2 -> P3 (registry to endpoint) -->
+  <line x1="570" y1="336" x2="628" y2="180" stroke="#3b48cc" stroke-width="2" marker-end="url(#ar-blue)"/>
+  <text x="575" y="250" class="flow">approved model</text>
+  <line x1="570" y1="336" x2="628" y2="244" stroke="#3b48cc" stroke-width="2" marker-end="url(#ar-blue)"/>
+  <!-- P3 client chain -->
+  <line x1="900" y1="244" x2="862" y2="180" stroke="#3b48cc" stroke-width="2" marker-end="url(#ar-blue)"/>
+  <text x="864" y="210" class="flow">invoke</text>
+  <line x1="1010" y1="216" x2="1010" y2="200" stroke="#3b48cc" stroke-width="2" marker-end="url(#ar-blue)"/>
+  <line x1="1010" y1="298" x2="1010" y2="276" stroke="#3b48cc" stroke-width="2" marker-end="url(#ar-blue)"/>
+  <text x="1018" y="292" class="flow">JSON score</text>
+
+  <!-- Pipeline -> Registry (feedback up) -->
+  <line x1="170" y1="480" x2="400" y2="364" stroke="#8245d6" stroke-width="2" marker-end="url(#ar-blue)"/>
+  <text x="200" y="430" class="flow">registers new versions</text>
+  <!-- Monitor watches endpoint -->
+  <line x1="445" y1="480" x2="700" y2="200" stroke="#ec7211" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#ar-orange)"/>
+  <text x="520" y="430" class="flow">captures endpoint traffic</text>
+  <!-- Monitor -> SNS -->
+  <line x1="445" y1="536" x2="445" y2="554" stroke="#d6336c" stroke-width="2" marker-end="url(#ar-blue)"/>
+  <!-- Monitor -> CloudWatch -->
+  <line x1="560" y1="508" x2="603" y2="508" stroke="#d6336c" stroke-width="2" marker-end="url(#ar-blue)"/>
+  <!-- CI/CD -> Pipeline -->
+  <line x1="170" y1="556" x2="170" y2="538" stroke="#d6336c" stroke-width="2" marker-end="url(#ar-blue)"/>
+  <text x="180" y="550" class="flow">triggers</text>
+
+  <!-- Legend -->
+  <g transform="translate(40,726)">
+    <rect x="0" y="-12" width="16" height="16" rx="3" fill="#ec7211"/><text x="22" y="1" class="lbl">SageMaker / ML</text>
+    <rect x="150" y="-12" width="16" height="16" rx="3" fill="#3b9c5a"/><text x="172" y="1" class="lbl">Storage / Cost</text>
+    <rect x="310" y="-12" width="16" height="16" rx="3" fill="#d6336c"/><text x="332" y="1" class="lbl">Compute / API / Messaging</text>
+    <rect x="540" y="-12" width="16" height="16" rx="3" fill="#8245d6"/><text x="562" y="1" class="lbl">Registry / Pipeline</text>
+    <rect x="710" y="-12" width="16" height="16" rx="3" fill="#232f3e"/><text x="732" y="1" class="lbl">Security / Client</text>
+  </g>
+</svg>

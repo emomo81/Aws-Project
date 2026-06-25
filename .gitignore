@@ -1,0 +1,31 @@
+# Data (do not commit large datasets — download from Kaggle instead)
+*.csv
+fraudTrain.csv
+fraudTest.csv
+processed_*.csv
+batch_*.csv
+
+# Model artifacts
+*.tar.gz
+*.h5
+*.keras
+*.pkl
+*.joblib
+fraud_xgboost_v1.json
+model.tar.gz
+
+# Generated charts (optional — keep if you want them in the report)
+*.png
+
+# Python / Jupyter
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+.venv/
+venv/
+
+# AWS / secrets
+.aws/
+*.pem
+kaggle.json
+.env

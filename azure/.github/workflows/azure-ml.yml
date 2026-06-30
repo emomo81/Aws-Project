@@ -1,0 +1,48 @@
+# PHASE 4 - CI/CD (CodePipeline equivalent) with GitHub Actions.
+#
+# Setup:
+#   1. Create a service principal:
+#        az ad sp create-for-rbac --name fraud-mlops-ci \
+#          --role Contributor \
+#          --scopes /subscriptions/<SUB_ID>/resourceGroups/rg-fraud-mlops \
+#          --sdk-auth
+#   2. Copy the JSON output into a GitHub repo secret named AZURE_CREDENTIALS.
+#   3. Add repo secrets: AZ_SUBSCRIPTION_ID, AZ_RESOURCE_GROUP, AZ_WORKSPACE.
+#
+# NOTE: GitHub Actions only reads workflows from .github/workflows at the REPO ROOT.
+# Copy this file to <repo-root>/.github/workflows/azure-ml.yml to activate it.
+
+name: Azure ML CI/CD
+
+on:
+  push:
+    branches: [main]
+    paths: ["azure/**"]
+  workflow_dispatch: {}   # manual approval trigger
+
+jobs:
+  validate-train-register:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: azure
+    env:
+      AZ_SUBSCRIPTION_ID: ${{ secrets.AZ_SUBSCRIPTION_ID }}
+      AZ_RESOURCE_GROUP: ${{ secrets.AZ_RESOURCE_GROUP }}
+      AZ_WORKSPACE: ${{ secrets.AZ_WORKSPACE }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install SDK
+        run: pip install azure-ai-ml azure-identity
+
+      - uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Submit AzureML pipeline
+        run: python phase4_pipeline.py

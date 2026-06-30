@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 760" font-family="Segoe UI, Arial, Helvetica, sans-serif">
+  <defs>
+    <style>
+      .title{font-size:26px;font-weight:bold;fill:#243a5e}
+      .sub{font-size:13px;fill:#5f6b7a}
+      .phase{font-size:13px;font-weight:bold;fill:#0f3b66;text-transform:uppercase;letter-spacing:1px}
+      .svc{font-size:12px;font-weight:bold;fill:#fff}
+      .svcd{font-size:10px;fill:#e6edf3}
+      .lbl{font-size:11px;fill:#243a5e}
+      .flow{font-size:10px;fill:#5f6b7a;font-style:italic}
+    </style>
+    <marker id="az-blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#0078d4"/>
+    </marker>
+    <marker id="az-teal" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#008272"/>
+    </marker>
+  </defs>
+
+  <rect width="1180" height="760" fill="#f6f9fc"/>
+  <text x="40" y="46" class="title">Fraud Detection — MLOps Pipeline on Azure</text>
+  <text x="40" y="68" class="sub">Azure Machine Learning · From data ingestion to real-time inference, monitoring &amp; CI/CD · Azure for Students</text>
+
+  <!-- ===== PHASE BANDS ===== -->
+  <rect x="30" y="92" width="270" height="300" rx="10" fill="#eaf3fb" stroke="#a7cdee"/>
+  <text x="48" y="116" class="phase">Phase 1 · Data &amp; Features</text>
+
+  <rect x="320" y="92" width="270" height="300" rx="10" fill="#e7f5f3" stroke="#9bd3cb"/>
+  <text x="338" y="116" class="phase">Phase 2 · Training</text>
+
+  <rect x="610" y="92" width="540" height="300" rx="10" fill="#eef0fb" stroke="#b9bfe9"/>
+  <text x="628" y="116" class="phase">Phase 3 · Deployment &amp; Serving</text>
+
+  <rect x="30" y="430" width="1120" height="290" rx="10" fill="#f0ecfa" stroke="#c9b8e8"/>
+  <text x="48" y="454" class="phase">Phase 4 &amp; 5 · MLOps, Monitoring, Automation &amp; Production</text>
+
+  <!-- ===== Phase 1 nodes ===== -->
+  <g>
+    <rect x="55" y="140" width="220" height="56" rx="6" fill="#0078d4"/>
+    <text x="70" y="164" class="svc">Azure Blob Storage</text>
+    <text x="70" y="182" class="svcd">raw/  +  processed/ (datastore)</text>
+  </g>
+  <g>
+    <rect x="55" y="216" width="220" height="56" rx="6" fill="#0078d4"/>
+    <text x="70" y="240" class="svc">Azure ML · Data Assets</text>
+    <text x="70" y="258" class="svcd">EDA · feature engineering</text>
+  </g>
+  <g>
+    <rect x="55" y="292" width="220" height="56" rx="6" fill="#0078d4"/>
+    <text x="70" y="316" class="svc">Managed Feature Store</text>
+    <text x="70" y="334" class="svcd">Online + Offline</text>
+  </g>
+
+  <!-- ===== Phase 2 nodes ===== -->
+  <g>
+    <rect x="340" y="140" width="230" height="50" rx="6" fill="#008272"/>
+    <text x="355" y="162" class="svc">Command Jobs (XGBoost)</text>
+    <text x="355" y="179" class="svcd">+ Neural Net (sklearn MLP)</text>
+  </g>
+  <g>
+    <rect x="340" y="200" width="230" height="46" rx="6" fill="#008272"/>
+    <text x="355" y="222" class="svc">Sweep Jobs · MLflow</text>
+    <text x="355" y="238" class="svcd">HPO + experiment tracking</text>
+  </g>
+  <g>
+    <rect x="340" y="256" width="230" height="46" rx="6" fill="#008272"/>
+    <text x="355" y="278" class="svc">Responsible AI</text>
+    <text x="355" y="294" class="svcd">bias + explainability</text>
+  </g>
+  <g>
+    <rect x="340" y="312" width="230" height="48" rx="6" fill="#5c2d91"/>
+    <text x="355" y="334" class="svc">Model Registry</text>
+    <text x="355" y="350" class="svcd">versioning + approval tags</text>
+  </g>
+
+  <!-- ===== Phase 3 nodes ===== -->
+  <g>
+    <rect x="630" y="140" width="230" height="56" rx="6" fill="#0078d4"/>
+    <text x="645" y="164" class="svc">Managed Online Endpoint</text>
+    <text x="645" y="182" class="svcd">real-time + autoscaling</text>
+  </g>
+  <g>
+    <rect x="630" y="216" width="230" height="56" rx="6" fill="#0078d4"/>
+    <text x="645" y="240" class="svc">Batch Endpoint</text>
+    <text x="645" y="258" class="svcd">bulk monthly scoring</text>
+  </g>
+  <g>
+    <rect x="900" y="140" width="220" height="56" rx="6" fill="#d83b01"/>
+    <text x="915" y="164" class="svc">Azure Functions</text>
+    <text x="915" y="182" class="svcd">REST /score (HTTP)</text>
+  </g>
+  <g>
+    <rect x="900" y="216" width="220" height="56" rx="6" fill="#d83b01"/>
+    <text x="915" y="240" class="svc">API consumers</text>
+    <text x="915" y="258" class="svcd">core banking / app</text>
+  </g>
+  <g>
+    <rect x="900" y="300" width="220" height="56" rx="6" fill="#243a5e"/>
+    <text x="915" y="324" class="svc">SentinelAI Inbox</text>
+    <text x="915" y="342" class="svcd">Next.js analyst dashboard</text>
+  </g>
+
+  <!-- ===== Phase 4/5 nodes ===== -->
+  <g>
+    <rect x="55" y="480" width="230" height="56" rx="6" fill="#5c2d91"/>
+    <text x="70" y="504" class="svc">Azure ML Pipeline</text>
+    <text x="70" y="522" class="svcd">validate→train→eval→register</text>
+  </g>
+  <g>
+    <rect x="55" y="556" width="230" height="56" rx="6" fill="#d83b01"/>
+    <text x="70" y="580" class="svc">GitHub Actions</text>
+    <text x="70" y="598" class="svcd">CI/CD automation</text>
+  </g>
+  <g>
+    <rect x="330" y="480" width="230" height="56" rx="6" fill="#0078d4"/>
+    <text x="345" y="504" class="svc">Azure ML Monitoring</text>
+    <text x="345" y="522" class="svcd">data + prediction drift</text>
+  </g>
+  <g>
+    <rect x="330" y="556" width="230" height="56" rx="6" fill="#d83b01"/>
+    <text x="345" y="580" class="svc">Monitor · Action Group</text>
+    <text x="345" y="598" class="svcd">email drift alerts</text>
+  </g>
+  <g>
+    <rect x="605" y="480" width="230" height="56" rx="6" fill="#0078d4"/>
+    <text x="620" y="504" class="svc">Azure Monitor / App Insights</text>
+    <text x="620" y="522" class="svcd">latency · requests · cost</text>
+  </g>
+  <g>
+    <rect x="605" y="556" width="230" height="56" rx="6" fill="#243a5e"/>
+    <text x="620" y="580" class="svc">RBAC · Key Vault · VNet</text>
+    <text x="620" y="598" class="svcd">least-privilege + encryption</text>
+  </g>
+  <g>
+    <rect x="880" y="480" width="240" height="132" rx="6" fill="#107c10"/>
+    <text x="900" y="520" class="svc">Cost Optimization</text>
+    <text x="900" y="544" class="svcd">Low-priority (spot) VMs</text>
+    <text x="900" y="562" class="svcd">Autoscale to zero</text>
+    <text x="900" y="580" class="svcd">Delete endpoint when idle</text>
+    <text x="900" y="598" class="svcd">Budget alert ($20)</text>
+  </g>
+
+  <!-- ===== FLOW ARROWS ===== -->
+  <line x1="165" y1="196" x2="165" y2="214" stroke="#0078d4" stroke-width="2" marker-end="url(#az-blue)"/>
+  <line x1="165" y1="272" x2="165" y2="290" stroke="#0078d4" stroke-width="2" marker-end="url(#az-blue)"/>
+  <line x1="275" y1="240" x2="338" y2="165" stroke="#0078d4" stroke-width="2" marker-end="url(#az-blue)"/>
+  <text x="280" y="200" class="flow">features</text>
+
+  <line x1="455" y1="190" x2="455" y2="198" stroke="#008272" stroke-width="2" marker-end="url(#az-teal)"/>
+  <line x1="455" y1="246" x2="455" y2="254" stroke="#008272" stroke-width="2" marker-end="url(#az-teal)"/>
+  <line x1="455" y1="302" x2="455" y2="310" stroke="#008272" stroke-width="2" marker-end="url(#az-teal)"/>
+
+  <line x1="570" y1="336" x2="628" y2="180" stroke="#0078d4" stroke-width="2" marker-end="url(#az-blue)"/>
+  <text x="575" y="250" class="flow">approved model</text>
+  <line x1="570" y1="336" x2="628" y2="244" stroke="#0078d4" stroke-width="2" marker-end="url(#az-blue)"/>
+
+  <line x1="900" y1="244" x2="862" y2="180" stroke="#0078d4" stroke-width="2" marker-end="url(#az-blue)"/>
+  <text x="864" y="210" class="flow">invoke</text>
+  <line x1="1010" y1="216" x2="1010" y2="200" stroke="#0078d4" stroke-width="2" marker-end="url(#az-blue)"/>
+  <line x1="1010" y1="300" x2="1010" y2="276" stroke="#0078d4" stroke-width="2" marker-end="url(#az-blue)"/>
+  <text x="1018" y="292" class="flow">score</text>
+
+  <line x1="170" y1="480" x2="400" y2="364" stroke="#5c2d91" stroke-width="2" marker-end="url(#az-blue)"/>
+  <text x="200" y="430" class="flow">registers new versions</text>
+
+  <line x1="445" y1="480" x2="700" y2="200" stroke="#0078d4" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#az-blue)"/>
+  <text x="520" y="430" class="flow">captures endpoint traffic</text>
+
+  <line x1="445" y1="536" x2="445" y2="554" stroke="#d83b01" stroke-width="2" marker-end="url(#az-blue)"/>
+  <line x1="560" y1="508" x2="603" y2="508" stroke="#d83b01" stroke-width="2" marker-end="url(#az-blue)"/>
+  <line x1="170" y1="556" x2="170" y2="538" stroke="#d83b01" stroke-width="2" marker-end="url(#az-blue)"/>
+  <text x="180" y="550" class="flow">triggers</text>
+
+  <!-- Legend -->
+  <g transform="translate(40,726)">
+    <rect x="0" y="-12" width="16" height="16" rx="3" fill="#0078d4"/><text x="22" y="1" class="lbl">Azure ML / Storage</text>
+    <rect x="170" y="-12" width="16" height="16" rx="3" fill="#008272"/><text x="192" y="1" class="lbl">Training / Compute</text>
+    <rect x="330" y="-12" width="16" height="16" rx="3" fill="#d83b01"/><text x="352" y="1" class="lbl">Functions / Messaging / CI</text>
+    <rect x="540" y="-12" width="16" height="16" rx="3" fill="#5c2d91"/><text x="562" y="1" class="lbl">Registry / Pipeline</text>
+    <rect x="700" y="-12" width="16" height="16" rx="3" fill="#107c10"/><text x="722" y="1" class="lbl">Cost</text>
+    <rect x="770" y="-12" width="16" height="16" rx="3" fill="#243a5e"/><text x="792" y="1" class="lbl">Security / Client</text>
+  </g>
+</svg>
